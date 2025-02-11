@@ -1,18 +1,14 @@
 pipeline {
     agent any
 
-    tools {
-        jdk 'jdk-17'
-    }
-
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/saiteja-adapa-2909/java-timestamp.git'
+                git 'https://github.com/saiteja-adapa-2909/java-timestamp.git'
             }
         }
 
-        stage('Compile') {
+        stage('Build') {
             steps {
                 sh 'javac TimestampPrinter.java'
             }
